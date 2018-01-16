@@ -5,18 +5,18 @@ using Microsoft.Azure.WebJobs.Host;
 
 namespace AFV2
 {
-    public static class Function2
+    public static class SampleFunction
     {
         private static readonly ILifetimeScope _rootScope;
 
-        static Function2()
+        static SampleFunction()
         {
             var builder = new ContainerBuilder();
 
             _rootScope = builder.Build().BeginLifetimeScope();
         }
 
-        [FunctionName("Function2")]
+        [FunctionName("SampleFunction")]
         public static void Run([TimerTrigger("*/10 * * * * *")]TimerInfo myTimer, TraceWriter log)
         {
             log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
